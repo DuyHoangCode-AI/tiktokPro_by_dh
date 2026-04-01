@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Tiệm Chè Của Băng | Quản lý bán hàng</title>
-  <!-- Google Fonts cho font chữ ký & hiện đại -->
+  <title>Tiệm Chè Của Băng | Quản lý bán hàng & Doanh thu</title>
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (free) -->
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -22,23 +22,21 @@
       color: #2e241f;
     }
 
-    /* container chính */
     .app-container {
       max-width: 1400px;
       margin: 0 auto;
     }
 
-    /* header + chào mừng */
+    /* Hero */
     .hero {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       background: rgba(255, 250, 240, 0.7);
       backdrop-filter: blur(4px);
       border-radius: 60px;
       padding: 20px 30px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     }
-
     .cafe-title {
       font-family: 'Playfair Display', cursive;
       font-size: 3.2rem;
@@ -46,9 +44,7 @@
       color: #d48c3b;
       letter-spacing: 2px;
       text-shadow: 3px 3px 0 #ffe0b5;
-      margin-bottom: 8px;
     }
-
     .welcome-message {
       font-size: 1.2rem;
       background: #fbe9d2;
@@ -57,12 +53,11 @@
       border-radius: 40px;
       color: #b45f2b;
       font-weight: 500;
-      margin-top: 8px;
+      margin: 8px 0;
     }
-
     .intro-text {
       max-width: 700px;
-      margin: 15px auto 0;
+      margin: 10px auto 0;
       color: #7b4a2c;
       font-weight: 500;
       background: #fff5ea;
@@ -71,19 +66,17 @@
       font-size: 0.95rem;
     }
 
-    /* layout 2 cột */
+    /* Layout 2 cột cho tạo đơn */
     .dashboard {
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
+      margin-bottom: 40px;
     }
-
-    /* menu sản phẩm (bên trái) */
     .menu-section {
       flex: 2;
       min-width: 280px;
     }
-
     .cart-section {
       flex: 1.3;
       min-width: 300px;
@@ -97,22 +90,44 @@
       top: 20px;
     }
 
+    /* Khu vực thống kê + lịch sử */
+    .stats-history {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .stats-card {
+      flex: 1;
+      min-width: 260px;
+      background: #fef9ef;
+      border-radius: 40px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      border: 1px solid #ffe1be;
+    }
+    .history-card {
+      flex: 2;
+      min-width: 300px;
+      background: #fef9ef;
+      border-radius: 40px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      border: 1px solid #ffe1be;
+    }
     .section-title {
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       font-weight: 700;
       border-left: 8px solid #f6b83e;
       padding-left: 16px;
       margin-bottom: 20px;
       color: #543a28;
     }
-
-    /* grid món ngon */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
       gap: 18px;
     }
-
     .product-card {
       background: white;
       border-radius: 32px;
@@ -125,18 +140,14 @@
     }
     .product-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.1);
       background: #fff7ef;
       border-color: #ffcd94;
     }
-
     .product-name {
       font-weight: 700;
       font-size: 1.1rem;
       color: #3f2a1f;
-      margin-bottom: 8px;
     }
-
     .product-price {
       font-weight: 600;
       color: #e28c3a;
@@ -145,26 +156,23 @@
       padding: 4px 12px;
       border-radius: 40px;
       font-size: 0.9rem;
+      margin-top: 8px;
     }
-
-    /* giỏ hàng (hoá đơn) */
+    /* Giỏ hàng */
     .cart-items-list {
       max-height: 380px;
       overflow-y: auto;
       margin-bottom: 20px;
     }
-
     .cart-item {
       background: #fef5ea;
       border-radius: 28px;
-      padding: 12px 12px;
+      padding: 12px;
       margin-bottom: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
     }
-
     .item-info {
       flex: 3;
     }
@@ -176,10 +184,6 @@
       font-size: 0.75rem;
       color: #b1622a;
     }
-    .item-price-row {
-      font-weight: 600;
-      color: #c1722c;
-    }
     .remove-item {
       background: none;
       border: none;
@@ -187,24 +191,15 @@
       color: #c9724b;
       cursor: pointer;
       padding: 5px;
-      border-radius: 50%;
-      transition: 0.2s;
     }
-    .remove-item:hover {
-      background: #ffe0c4;
-      color: #b13e1a;
-    }
-
     .cart-total {
       font-size: 1.6rem;
       font-weight: 800;
       text-align: right;
       border-top: 2px dashed #f0cfaa;
       padding-top: 15px;
-      margin-top: 10px;
       color: #cb7b2a;
     }
-
     .btn-payment {
       background: linear-gradient(95deg, #f9b84a, #ff9f2e);
       border: none;
@@ -216,31 +211,53 @@
       color: white;
       margin-top: 20px;
       cursor: pointer;
-      transition: 0.2s;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.1);
     }
-    .btn-payment:hover {
-      background: #ffa72b;
-      transform: scale(0.98);
-    }
-
-    .revenue-btn {
+    .btn-secondary {
       background: #e3d3c0;
       border: none;
-      width: 100%;
-      padding: 12px;
-      border-radius: 50px;
+      padding: 10px;
+      border-radius: 40px;
       font-weight: 600;
-      margin-top: 16px;
       cursor: pointer;
-      color: #5a3a28;
-      transition: 0.2s;
+      margin-top: 10px;
+      width: 100%;
     }
-    .revenue-btn:hover {
-      background: #d4bea3;
+    /* Lịch sử đơn hàng */
+    .order-list {
+      max-height: 400px;
+      overflow-y: auto;
     }
-
-    /* modal chung */
+    .order-item {
+      background: white;
+      border-radius: 24px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .order-info {
+      flex: 3;
+    }
+    .order-time {
+      font-weight: 600;
+      color: #b45f2b;
+    }
+    .order-total {
+      font-weight: 700;
+      color: #e28c3a;
+    }
+    .view-detail-btn {
+      background: #f0e0ce;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    /* Modal chung */
     .modal {
       display: none;
       position: fixed;
@@ -255,15 +272,13 @@
     .modal-content {
       background: #fffaf2;
       border-radius: 48px;
-      max-width: 450px;
+      max-width: 500px;
       width: 90%;
-      padding: 30px 25px;
-      box-shadow: 0 25px 40px rgba(0,0,0,0.3);
+      padding: 25px;
       text-align: center;
     }
     .modal-content h3 {
       font-size: 1.7rem;
-      margin-bottom: 20px;
       color: #cb7b2a;
     }
     .price-options {
@@ -278,8 +293,6 @@
       padding: 8px 16px;
       border-radius: 40px;
       cursor: pointer;
-      transition: 0.1s;
-      font-weight: 600;
     }
     .price-opt.selected {
       background: #f6b83e;
@@ -302,11 +315,6 @@
       font-weight: bold;
       cursor: pointer;
     }
-    .qty-num {
-      font-size: 1.6rem;
-      font-weight: 700;
-      min-width: 50px;
-    }
     .modal-actions {
       display: flex;
       gap: 15px;
@@ -324,28 +332,14 @@
       background: #d99e45;
       color: white;
     }
-    .btn-cancel {
-      background: #e9dbce;
-    }
     .qr-img {
       max-width: 220px;
       margin: 20px auto;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .small-note {
-      font-size: 0.8rem;
-      color: #946b48;
-      margin-top: 10px;
     }
     footer {
-      margin-top: 40px;
       text-align: center;
+      margin-top: 40px;
       color: #b87c48;
-    }
-    @media (max-width: 780px) {
-      .cafe-title { font-size: 2.4rem; }
-      .hero { padding: 15px; }
     }
   </style>
 </head>
@@ -356,222 +350,228 @@
     <div class="welcome-message"><i class="fas fa-heart"></i> Chào mừng bạn đến với thiên đường chè & bánh tráng <i class="fas fa-heart"></i></div>
     <div class="intro-text">
       🌟 Chè nhà làm – hương vị thơm ngon, nguyên liệu tươi sạch. Bánh tráng đậm đà.<br>
-      Ấn vào món để chọn số lượng, thêm vào hoá đơn. Thanh toán nhanh chóng, lưu doanh thu thông minh!
+      Tạo đơn dễ dàng, theo dõi doanh thu và lịch sử ngay bên dưới!
     </div>
   </div>
 
+  <!-- Khu vực tạo đơn (chọn món + giỏ hàng) -->
   <div class="dashboard">
-    <!-- MENU MÓN -->
     <div class="menu-section">
-      <div class="section-title"><i class="fas fa-ice-cream"></i> Thực đơn yêu thích</div>
+      <div class="section-title"><i class="fas fa-ice-cream"></i> Thực đơn tạo đơn</div>
       <div class="products-grid" id="productsGrid"></div>
     </div>
-
-    <!-- GIỎ HÀNG + HOÁ ĐƠN -->
     <div class="cart-section">
       <div class="section-title"><i class="fas fa-receipt"></i> Hoá đơn hiện tại</div>
-      <div id="cartItemsContainer" class="cart-items-list">
-        <div style="text-align:center; color:#bc8f6b;">Chưa có món nào</div>
-      </div>
+      <div id="cartItemsContainer" class="cart-items-list">Chưa có món</div>
       <div class="cart-total" id="cartTotalAmount">Tổng: 0₫</div>
       <button class="btn-payment" id="checkoutBtn"><i class="fas fa-credit-card"></i> Thanh toán</button>
-      <button class="revenue-btn" id="viewRevenueBtn"><i class="fas fa-chart-line"></i> Doanh thu hôm nay 📆</button>
     </div>
   </div>
-  <footer>Web Được Xây Dựng Bởi Duy Hoang | Admin: Duy Hoang | Web dành riêng cho Tiệm Chè Của Băng để quản lý đơn và doanh thu | tối ưu lợi nhuận </footer>
+
+  <!-- Thống kê & Lịch sử -->
+  <div class="stats-history">
+    <div class="stats-card">
+      <div class="section-title"><i class="fas fa-chart-pie"></i> Thống kê tổng quan</div>
+      <div id="statsOverview">
+        <p><strong>Tổng doanh thu:</strong> <span id="totalRevenueAll">0₫</span></p>
+        <p><strong>Tổng số đơn:</strong> <span id="totalOrdersCount">0</span></p>
+        <p><strong>Tổng món đã bán:</strong> <span id="totalItemsSold">0</span></p>
+        <p><strong>📈 Top món bán chạy:</strong></p>
+        <ul id="topItemsList" style="margin-left: 20px;"></ul>
+        <button id="refreshStatsBtn" class="btn-secondary" style="margin-top:12px;"><i class="fas fa-sync-alt"></i> Làm mới</button>
+      </div>
+    </div>
+    <div class="history-card">
+      <div class="section-title"><i class="fas fa-history"></i> Lịch sử đơn hàng</div>
+      <div id="orderHistoryList" class="order-list">Đang tải...</div>
+    </div>
+  </div>
+  <footer> WEB ĐƯỢC XÂY DỰNG VÀ PHÁT TRIỂN BỞI DUY HOANG | WEN DÀNH RIÊNG CHO TIỆM CHÈ CỦA BĂNG </footer>
 </div>
 
-<!-- MODAL SỐ LƯỢNG + GIÁ (LINH HOẠT) -->
-<div id="productModal" class="modal">
-  <div class="modal-content">
-    <h3 id="modalProductName">Tên món</h3>
-    <div id="priceVariantArea" style="margin: 10px 0;"></div>
-    <div class="quantity-control">
-      <button class="qty-btn" id="modalMinus">-</button>
-      <span class="qty-num" id="modalQuantity">1</span>
-      <button class="qty-btn" id="modalPlus">+</button>
-    </div>
-    <div id="specialPriceHint" style="font-size:0.8rem; color:#bf7f40;"></div>
-    <div class="modal-actions">
-      <button class="btn-confirm" id="modalConfirmBtn">Thêm vào hoá đơn</button>
-      <button class="btn-cancel" id="modalCancelBtn">Huỷ</button>
-    </div>
-  </div>
-</div>
+<!-- Modal số lượng / biến thể -->
+<div id="productModal" class="modal"><div class="modal-content">
+  <h3 id="modalProductName"></h3>
+  <div id="priceVariantArea"></div>
+  <div class="quantity-control"><button class="qty-btn" id="modalMinus">-</button><span class="qty-num" id="modalQuantity">1</span><button class="qty-btn" id="modalPlus">+</button></div>
+  <div id="specialPriceHint"></div>
+  <div class="modal-actions"><button class="btn-confirm" id="modalConfirmBtn">Thêm vào hoá đơn</button><button class="btn-cancel" id="modalCancelBtn">Huỷ</button></div>
+</div></div>
 
-<!-- MODAL THANH TOÁN (TIỀN MẶT / QR) -->
-<div id="paymentMethodModal" class="modal">
-  <div class="modal-content">
-    <h3><i class="fas fa-wallet"></i> Phương thức thanh toán</h3>
-    <p style="margin:10px 0">Tổng tiền: <strong id="paymentTotalSpan">0₫</strong></p>
-    <div style="display:flex; gap:16px; justify-content:center; margin:20px 0">
-      <button id="cashPayBtn" style="background:#86b3b3; padding:10px 24px; border-radius:40px; border:none; font-weight:bold;">💰 Tiền mặt</button>
-      <button id="qrPayBtn" style="background:#e8b86b; padding:10px 24px; border-radius:40px; border:none; font-weight:bold;">📱 QR Bank (VietinBank)</button>
-    </div>
-    <button class="btn-cancel" id="closePayModalBtn" style="margin-top:10px;">Quay lại</button>
+<!-- Modal thanh toán -->
+<div id="paymentMethodModal" class="modal"><div class="modal-content">
+  <h3>Phương thức thanh toán</h3>
+  <p>Tổng tiền: <strong id="paymentTotalSpan">0₫</strong></p>
+  <div style="display:flex; gap:16px; justify-content:center; margin:20px 0">
+    <button id="cashPayBtn" style="background:#86b3b3; padding:10px 24px; border-radius:40px;">💰 Tiền mặt</button>
+    <button id="qrPayBtn" style="background:#e8b86b; padding:10px 24px; border-radius:40px;">📱 QR Bank</button>
   </div>
-</div>
+  <button class="btn-cancel" id="closePayModalBtn">Đóng</button>
+</div></div>
 
-<!-- MODAL HIỂN THỊ QR & XÁC NHẬN -->
-<div id="qrModal" class="modal">
-  <div class="modal-content">
-    <h3>Quét mã QR để thanh toán</h3>
-    <div id="qrImageContainer" style="text-align:center;"></div>
-    <p style="margin:10px 0"><strong>Số tiền: <span id="qrAmountSpan"></span>₫</strong><br>Ngân hàng: Vietinbank<br>STK: 101895059888<br>Chủ TK: LE THI THU HUONG<br>Nội dung: Thanh Toan QR Cho Bang</p>
-    <div class="modal-actions">
-      <button id="confirmQrPaymentBtn" class="btn-confirm">Xác nhận đã thanh toán ✅</button>
-      <button id="closeQrModalBtn" class="btn-cancel">Đóng</button>
-    </div>
-  </div>
-</div>
+<!-- Modal QR -->
+<div id="qrModal" class="modal"><div class="modal-content">
+  <h3>Quét mã QR thanh toán</h3>
+  <div id="qrImageContainer"></div>
+  <p><strong>Số tiền: <span id="qrAmountSpan"></span>₫</strong><br>Ngân hàng: Vietinbank<br>STK: 101895059888<br>Chủ TK: LE THI THU HUONG<br>Nội dung: Thanh Toan QR Cho Bang</p>
+  <div class="modal-actions"><button id="confirmQrPaymentBtn" class="btn-confirm">Xác nhận đã thanh toán ✅</button><button id="closeQrModalBtn" class="btn-cancel">Đóng</button></div>
+</div></div>
 
-<!-- MODAL DOANH THU NGÀY -->
-<div id="revenueModal" class="modal">
-  <div class="modal-content" style="max-width:500px;">
-    <h3><i class="fas fa-chart-simple"></i> Doanh thu hôm nay</h3>
-    <div id="revenueDetail"></div>
-    <button id="closeRevenueBtn" class="btn-cancel" style="margin-top:20px;">Đóng</button>
-  </div>
-</div>
+<!-- Modal chi tiết đơn hàng -->
+<div id="orderDetailModal" class="modal"><div class="modal-content" style="max-width:550px; text-align:left;">
+  <h3>🧾 Chi tiết đơn hàng</h3>
+  <div id="orderDetailContent"></div>
+  <button id="closeOrderDetailBtn" class="btn-cancel" style="margin-top:20px;">Đóng</button>
+</div></div>
 
 <script>
-  // ------------------------- DANH SÁCH SẢN PHẨM -------------------------
+  // ---------- DANH SÁCH SẢN PHẨM ----------
   const PRODUCTS = [
     { id: "che_sau", name: "🍧 Chè Sầu", basePrice: 25000, type: "normal" },
     { id: "che_thotnot", name: "💗 Chè Thốt nốt mít", basePrice: 25000, type: "normal" },
-    { id: "che_dua_dam", name: "🥥 Chè dừa dầm", basePrice: 20000, type: "special_discount", desc: "20k/1 - 35k/2 (số lượng 2 được 35k)" },
+    { id: "che_dua_dam", name: "🥥 Chè dừa dầm", basePrice: 20000, type: "special_discount", desc: "20k/1 - 35k/2" },
     { id: "che_khucbach", name: "🍮 Chè khúc bạch", basePrice: 30000, type: "normal" },
     { id: "che_buoi", name: "🍊 Chè bưởi", basePrice: 15000, type: "normal" },
     { id: "che_daudo", name: "🫘 Chè đậu đỏ", basePrice: 15000, type: "normal" },
     { id: "che_bo", name: "🥑 Chè bơ", basePrice: 25000, type: "normal" },
     { id: "banh_trang_cuon", name: "🌯 Bánh tráng cuốn thường", basePrice: 30000, type: "normal" },
     { id: "banh_trang_cuon_bo", name: "🧈 Bánh tráng cuốn thêm bơ", basePrice: 35000, type: "normal" },
-    { id: "banh_trang_tron", name: "🍜 Bánh tráng trộn (tuỳ mức giá)", basePrice: 20000, type: "variable_price", priceOptions: [20000, 25000, 30000, 35000, 40000] }
+    { id: "banh_trang_tron", name: "🍜 Bánh tráng trộn (tuỳ mức)", basePrice: 20000, type: "variable_price", priceOptions: [20000, 25000, 30000, 35000, 40000] }
   ];
 
-  // Biến toàn cục
-  let currentCart = [];         // { id, name, quantity, unitPrice, totalPrice, variantPriceLabel? }
-  let selectedProduct = null;   // cho modal
-  let selectedVariablePrice = 20000; // cho bánh tráng trộn
+  let currentCart = [];
+  let selectedProduct = null;
+  let selectedVariablePrice = 20000;
   let currentQty = 1;
+  let allOrders = []; // lưu trữ đơn hàng
 
   // DOM elements
   const productsGrid = document.getElementById('productsGrid');
   const cartContainer = document.getElementById('cartItemsContainer');
   const cartTotalSpan = document.getElementById('cartTotalAmount');
   const checkoutBtn = document.getElementById('checkoutBtn');
-  const viewRevenueBtn = document.getElementById('viewRevenueBtn');
-  
-  // modal elements
-  const productModal = document.getElementById('productModal');
-  const modalProductName = document.getElementById('modalProductName');
-  const priceVariantArea = document.getElementById('priceVariantArea');
-  const modalQuantitySpan = document.getElementById('modalQuantity');
-  const modalMinus = document.getElementById('modalMinus');
-  const modalPlus = document.getElementById('modalPlus');
-  const modalConfirmBtn = document.getElementById('modalConfirmBtn');
-  const modalCancelBtn = document.getElementById('modalCancelBtn');
-  const specialPriceHint = document.getElementById('specialPriceHint');
-  
-  const paymentModal = document.getElementById('paymentMethodModal');
-  const paymentTotalSpan = document.getElementById('paymentTotalSpan');
-  const cashPayBtn = document.getElementById('cashPayBtn');
-  const qrPayBtn = document.getElementById('qrPayBtn');
-  const closePayModalBtn = document.getElementById('closePayModalBtn');
-  
-  const qrModal = document.getElementById('qrModal');
-  const qrImageContainer = document.getElementById('qrImageContainer');
-  const qrAmountSpan = document.getElementById('qrAmountSpan');
-  const confirmQrPaymentBtn = document.getElementById('confirmQrPaymentBtn');
-  const closeQrModalBtn = document.getElementById('closeQrModalBtn');
-  
-  const revenueModal = document.getElementById('revenueModal');
-  const revenueDetail = document.getElementById('revenueDetail');
-  const closeRevenueBtn = document.getElementById('closeRevenueBtn');
+  const orderHistoryList = document.getElementById('orderHistoryList');
 
-  // ---------- LƯU TRỮ ORDER ----------
-  let allOrders = []; // { date, timestamp, items, totalAmount, paymentMethod }
-
-  function loadOrdersFromStorage() {
-    const stored = localStorage.getItem('tiemche_orders');
+  // Load / Save localStorage
+  function loadOrders() {
+    const stored = localStorage.getItem('tiemche_orders_v2');
     if(stored) {
       allOrders = JSON.parse(stored);
     } else {
       allOrders = [];
     }
+    renderOrderHistory();
+    updateStatistics();
   }
-  function saveOrdersToStorage() {
-    localStorage.setItem('tiemche_orders', JSON.stringify(allOrders));
+  function saveOrders() {
+    localStorage.setItem('tiemche_orders_v2', JSON.stringify(allOrders));
+    renderOrderHistory();
+    updateStatistics();
   }
 
-  // Thêm hoá đơn sau khi thanh toán
+  // Thêm đơn hàng sau thanh toán
   function addOrder(cartItems, totalAmount, method) {
     const now = new Date();
-    const dateStr = now.toISOString().slice(0,10); // YYYY-MM-DD
+    const dateStr = now.toLocaleDateString('vi-VN');
+    const timeStr = now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute:'2-digit' });
     const newOrder = {
       id: Date.now(),
       date: dateStr,
+      time: timeStr,
       timestamp: now.getTime(),
-      items: cartItems.map(item => ({ ...item })), // clone
+      items: cartItems.map(item => ({ ...item })),
       totalAmount: totalAmount,
       paymentMethod: method
     };
-    allOrders.push(newOrder);
-    saveOrdersToStorage();
+    allOrders.unshift(newOrder); // mới nhất lên đầu
+    saveOrders();
   }
 
-  // Tính doanh thu ngày hôm nay
-  function getTodayRevenue() {
-    const today = new Date().toISOString().slice(0,10);
-    const todayOrders = allOrders.filter(order => order.date === today);
+  // Hiển thị lịch sử đơn hàng
+  function renderOrderHistory() {
+    if(allOrders.length === 0) {
+      orderHistoryList.innerHTML = '<div style="text-align:center; padding:20px;">Chưa có đơn hàng nào</div>';
+      return;
+    }
+    let html = '';
+    allOrders.forEach(order => {
+      html += `
+        <div class="order-item">
+          <div class="order-info">
+            <div class="order-time">📅 ${order.date} - ${order.time}</div>
+            <div>${order.paymentMethod} | ${order.items.length} món</div>
+            <div class="order-total">${order.totalAmount.toLocaleString()}₫</div>
+          </div>
+          <button class="view-detail-btn" data-id="${order.id}">Xem chi tiết</button>
+        </div>
+      `;
+    });
+    orderHistoryList.innerHTML = html;
+    document.querySelectorAll('.view-detail-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const orderId = parseInt(btn.dataset.id);
+        const order = allOrders.find(o => o.id === orderId);
+        if(order) showOrderDetail(order);
+      });
+    });
+  }
+
+  function showOrderDetail(order) {
+    let itemsHtml = '<ul style="list-style:none; margin-top:10px;">';
+    order.items.forEach(item => {
+      itemsHtml += `<li>🔸 ${item.name} — SL: ${item.quantity} x ${item.unitPrice.toLocaleString()}₫ = ${item.totalPrice.toLocaleString()}₫</li>`;
+    });
+    itemsHtml += '</ul>';
+    const content = `
+      <p><strong>Ngày giờ:</strong> ${order.date} - ${order.time}</p>
+      <p><strong>Phương thức:</strong> ${order.paymentMethod}</p>
+      <p><strong>Tổng tiền:</strong> ${order.totalAmount.toLocaleString()}₫</p>
+      <p><strong>Chi tiết món:</strong></p>
+      ${itemsHtml}
+    `;
+    document.getElementById('orderDetailContent').innerHTML = content;
+    document.getElementById('orderDetailModal').style.display = 'flex';
+  }
+
+  // Thống kê tổng quan
+  function updateStatistics() {
     let totalRevenue = 0;
-    let totalItemsCount = 0;
-    const productStats = new Map(); // key: tên món (kèm phân biệt giá), value: { quantity, revenue }
-    for(let order of todayOrders) {
+    let totalOrders = allOrders.length;
+    let totalItemsSold = 0;
+    const itemCountMap = new Map(); // name -> quantity
+    for(let order of allOrders) {
       totalRevenue += order.totalAmount;
       for(let item of order.items) {
-        totalItemsCount += item.quantity;
-        const key = item.name + (item.unitPrice ? ` (${item.unitPrice.toLocaleString()}đ)` : '');
-        if(productStats.has(key)) {
-          let stat = productStats.get(key);
-          stat.quantity += item.quantity;
-          stat.revenue += item.totalPrice;
-        } else {
-          productStats.set(key, { quantity: item.quantity, revenue: item.totalPrice });
-        }
+        totalItemsSold += item.quantity;
+        const key = item.name;
+        itemCountMap.set(key, (itemCountMap.get(key) || 0) + item.quantity);
       }
     }
-    return { totalRevenue, totalItemsCount, productStats, orderCount: todayOrders.length };
-  }
-
-  // Hiển thị modal doanh thu
-  function showRevenueModal() {
-    const { totalRevenue, totalItemsCount, productStats, orderCount } = getTodayRevenue();
-    let html = `<div style="background:#faeedf; border-radius:32px; padding:16px;">
-      <p><strong>📅 Ngày:</strong> ${new Date().toISOString().slice(0,10)}</p>
-      <p><strong>🧾 Tổng số đơn:</strong> ${orderCount}</p>
-      <p><strong>🍽️ Tổng số lượng món đã bán:</strong> ${totalItemsCount}</p>
-      <p><strong>💰 Tổng doanh thu:</strong> ${totalRevenue.toLocaleString()}₫</p>
-      <hr style="margin:12px 0">
-      <strong>📊 Chi tiết từng món:</strong><ul style="list-style:none; margin-top:10px;">`;
-    if(productStats.size === 0) html += "<li>Chưa có giao dịch hôm nay</li>";
-    for(let [name, stat] of productStats.entries()) {
-      html += `<li>🔸 ${name} → SL: ${stat.quantity}, Doanh thu: ${stat.revenue.toLocaleString()}₫</li>`;
+    document.getElementById('totalRevenueAll').innerText = totalRevenue.toLocaleString() + '₫';
+    document.getElementById('totalOrdersCount').innerText = totalOrders;
+    document.getElementById('totalItemsSold').innerText = totalItemsSold;
+    // top 3 món bán chạy
+    const sorted = [...itemCountMap.entries()].sort((a,b) => b[1] - a[1]);
+    const top3 = sorted.slice(0,3);
+    let topHtml = '';
+    if(top3.length === 0) topHtml = '<li>Chưa có dữ liệu</li>';
+    else {
+      top3.forEach(([name, qty]) => {
+        topHtml += `<li>${name} : ${qty} phần</li>`;
+      });
     }
-    html += `</ul></div>`;
-    revenueDetail.innerHTML = html;
-    revenueModal.style.display = 'flex';
+    document.getElementById('topItemsList').innerHTML = topHtml;
   }
 
   // Render giỏ hàng
   function renderCart() {
     if(currentCart.length === 0) {
-      cartContainer.innerHTML = `<div style="text-align:center; color:#bc8f6b;">🛒 Chưa có món nào, hãy chọn món yêu thích nhé!</div>`;
-      cartTotalSpan.innerText = `Tổng: 0₫`;
+      cartContainer.innerHTML = '<div style="text-align:center; color:#bc8f6b;">🛒 Chưa có món</div>';
+      cartTotalSpan.innerText = 'Tổng: 0₫';
       return;
     }
-    let html = '';
     let total = 0;
+    let html = '';
     currentCart.forEach((item, idx) => {
       total += item.totalPrice;
       html += `
@@ -579,7 +579,7 @@
           <div class="item-info">
             <div class="item-name">${item.name}</div>
             <div class="item-detail">${item.quantity} x ${item.unitPrice.toLocaleString()}₫</div>
-            <div class="item-price-row">${item.totalPrice.toLocaleString()}₫</div>
+            <div>${item.totalPrice.toLocaleString()}₫</div>
           </div>
           <button class="remove-item" data-index="${idx}"><i class="fas fa-trash-alt"></i></button>
         </div>
@@ -587,49 +587,45 @@
     });
     cartContainer.innerHTML = html;
     cartTotalSpan.innerText = `Tổng: ${total.toLocaleString()}₫`;
-    // Gắn sự kiện xoá
     document.querySelectorAll('.remove-item').forEach(btn => {
       btn.addEventListener('click', (e) => {
-        const index = parseInt(btn.dataset.index);
-        currentCart.splice(index,1);
+        const idx = parseInt(btn.dataset.index);
+        currentCart.splice(idx,1);
         renderCart();
       });
     });
   }
 
   // Thêm vào giỏ
-  function addToCart(product, quantity, unitPrice, finalTotalPrice, variantLabel = "") {
+  function addToCart(product, quantity, unitPrice, totalPrice, variantLabel='') {
     const displayName = product.name + (variantLabel ? ` (${variantLabel})` : '');
     currentCart.push({
       id: product.id + Date.now(),
       name: displayName,
       quantity: quantity,
       unitPrice: unitPrice,
-      totalPrice: finalTotalPrice
+      totalPrice: totalPrice
     });
     renderCart();
   }
 
-  // Xử lý mở modal cho từng sản phẩm
+  // Xử lý modal sản phẩm
   function openProductModal(product) {
     selectedProduct = product;
     currentQty = 1;
-    modalQuantitySpan.innerText = "1";
-    modalProductName.innerText = product.name;
-    specialPriceHint.innerHTML = "";
-    priceVariantArea.innerHTML = "";
-
-    if(product.type === "variable_price") {
-      // bánh tráng trộn: chọn mức giá
+    document.getElementById('modalQuantity').innerText = '1';
+    document.getElementById('modalProductName').innerText = product.name;
+    const priceVariantDiv = document.getElementById('priceVariantArea');
+    const hintDiv = document.getElementById('specialPriceHint');
+    priceVariantDiv.innerHTML = '';
+    if(product.type === 'variable_price') {
       selectedVariablePrice = product.basePrice;
-      let optsHtml = `<div style="font-size:0.85rem; margin-bottom:5px;">Chọn mức giá:</div><div class="price-options">`;
+      let opts = '<div class="price-options">';
       product.priceOptions.forEach(price => {
-        const isSelected = price === selectedVariablePrice;
-        optsHtml += `<div class="price-opt ${isSelected ? 'selected' : ''}" data-price="${price}">${price.toLocaleString()}₫</div>`;
+        opts += `<div class="price-opt ${price === selectedVariablePrice ? 'selected' : ''}" data-price="${price}">${price.toLocaleString()}₫</div>`;
       });
-      optsHtml += `</div>`;
-      priceVariantArea.innerHTML = optsHtml;
-      // gắn sự kiện chọn giá
+      opts += '</div>';
+      priceVariantDiv.innerHTML = opts;
       document.querySelectorAll('.price-opt').forEach(opt => {
         opt.addEventListener('click', (e) => {
           document.querySelectorAll('.price-opt').forEach(el => el.classList.remove('selected'));
@@ -637,155 +633,95 @@
           selectedVariablePrice = parseInt(opt.dataset.price);
         });
       });
-      specialPriceHint.innerText = "Giá linh hoạt theo lựa chọn của bạn";
-    } 
-    else if(product.type === "special_discount") {
-      // Chè dừa dầm 20k/1 - 35k/2
-      specialPriceHint.innerText = "💰 Ưu đãi: 1 phần 20k, 2 phần 35k (tổng)";
-    } 
-    else {
-      specialPriceHint.innerText = `Đơn giá: ${product.basePrice.toLocaleString()}₫ / phần`;
+      hintDiv.innerText = 'Chọn mức giá phù hợp';
+    } else if(product.type === 'special_discount') {
+      hintDiv.innerText = '🎉 Ưu đãi: 1 phần 20k, 2 phần 35k (tổng)';
+    } else {
+      hintDiv.innerText = `Đơn giá: ${product.basePrice.toLocaleString()}₫ / phần`;
     }
-    productModal.style.display = 'flex';
+    document.getElementById('productModal').style.display = 'flex';
   }
 
-  // Lấy total theo product và quantity
-  function computeItemTotal(product, quantity, selectedPrice=null) {
-    if(product.type === "variable_price") {
-      const unitPrice = selectedPrice !== null ? selectedPrice : selectedVariablePrice;
-      return { unitPrice, total: unitPrice * quantity };
-    }
-    else if(product.type === "special_discount" && product.id === "che_dua_dam") {
-      if(quantity === 2) {
-        return { unitPrice: 17500, total: 35000 };
-      } else {
-        return { unitPrice: product.basePrice, total: product.basePrice * quantity };
-      }
-    } 
-    else {
-      return { unitPrice: product.basePrice, total: product.basePrice * quantity };
+  function computeItemTotal(product, qty, customPrice=null) {
+    if(product.type === 'variable_price') {
+      const unit = customPrice !== null ? customPrice : selectedVariablePrice;
+      return { unitPrice: unit, total: unit * qty };
+    } else if(product.type === 'special_discount' && product.id === 'che_dua_dam') {
+      if(qty === 2) return { unitPrice: 17500, total: 35000 };
+      else return { unitPrice: product.basePrice, total: product.basePrice * qty };
+    } else {
+      return { unitPrice: product.basePrice, total: product.basePrice * qty };
     }
   }
 
-  // Xác nhận thêm món từ modal
-  function confirmAddToCart() {
+  function confirmAdd() {
     if(!selectedProduct) return;
     let qty = currentQty;
     if(qty < 1) qty = 1;
-    let unitPriceFinal, totalFinal;
-    let variantLabel = "";
-    if(selectedProduct.type === "variable_price") {
-      const price = selectedVariablePrice;
-      const res = computeItemTotal(selectedProduct, qty, price);
-      unitPriceFinal = res.unitPrice;
-      totalFinal = res.total;
-      variantLabel = `${unitPriceFinal.toLocaleString()}đ`;
+    let variantLabel = '';
+    let unitPrice, total;
+    if(selectedProduct.type === 'variable_price') {
+      const res = computeItemTotal(selectedProduct, qty, selectedVariablePrice);
+      unitPrice = res.unitPrice;
+      total = res.total;
+      variantLabel = `${unitPrice.toLocaleString()}đ`;
     } else {
       const res = computeItemTotal(selectedProduct, qty);
-      unitPriceFinal = res.unitPrice;
-      totalFinal = res.total;
+      unitPrice = res.unitPrice;
+      total = res.total;
     }
-    addToCart(selectedProduct, qty, unitPriceFinal, totalFinal, variantLabel);
-    productModal.style.display = 'none';
+    addToCart(selectedProduct, qty, unitPrice, total, variantLabel);
+    document.getElementById('productModal').style.display = 'none';
     selectedProduct = null;
   }
 
-  // thanh toán: hiển thị modal phương thức
+  // Thanh toán
+  let pendingTotal = 0;
   function showPaymentModal() {
-    if(currentCart.length === 0) {
-      alert("Chưa có món nào trong hoá đơn! Hãy thêm món trước khi thanh toán.");
-      return;
-    }
-    const total = currentCart.reduce((sum, i) => sum + i.totalPrice, 0);
-    paymentTotalSpan.innerText = total.toLocaleString() + "₫";
-    paymentModal.style.display = 'flex';
+    if(currentCart.length === 0) { alert('Chưa có món nào!'); return; }
+    const total = currentCart.reduce((s,i)=>s+i.totalPrice,0);
+    document.getElementById('paymentTotalSpan').innerText = total.toLocaleString() + '₫';
+    pendingTotal = total;
+    document.getElementById('paymentMethodModal').style.display = 'flex';
   }
-
-  // xử lý thanh toán tiền mặt
   function cashPayment() {
-    const total = currentCart.reduce((sum,i)=>sum+i.totalPrice,0);
-    const orderCopy = [...currentCart];
-    addOrder(orderCopy, total, "Tiền mặt");
+    const total = currentCart.reduce((s,i)=>s+i.totalPrice,0);
+    addOrder([...currentCart], total, 'Tiền mặt');
     currentCart = [];
     renderCart();
-    paymentModal.style.display = 'none';
-    alert(`✅ Thanh toán thành công! Tổng tiền: ${total.toLocaleString()}₫ (Tiền mặt). Cảm ơn bạn.`);
+    document.getElementById('paymentMethodModal').style.display = 'none';
+    alert(`✅ Thanh toán ${total.toLocaleString()}₫ thành công!`);
   }
-
-  // tạo QR từ vietqr (Vietinbank bin 970415)
-  function generateQRCode(amount) {
-    const bankBin = "970415";
-    const accountNo = "101895059888";
-    const accountName = "LE THI THU HUONG";
-    const addInfo = "Thanh Toan QR Cho Bang";
-    const template = "compact2";
-    // Mã hoá thông tin
-    const encodedInfo = encodeURIComponent(addInfo);
-    const encodedName = encodeURIComponent(accountName);
-    const qrUrl = `https://img.vietqr.io/image/${bankBin}-${accountNo}-${template}.png?amount=${amount}&addInfo=${encodedInfo}&accountName=${encodedName}`;
-    return qrUrl;
+  function generateQR(amount) {
+    const bankBin = '970415';
+    const acc = '101895059888';
+    const name = 'LE THI THU HUONG';
+    const info = 'Thanh Toan QR Cho Bang';
+    return `https://img.vietqr.io/image/${bankBin}-${acc}-compact2.png?amount=${amount}&addInfo=${encodeURIComponent(info)}&accountName=${encodeURIComponent(name)}`;
   }
-
-  // Hiển thị QR và chờ xác nhận
-  let pendingTotalAmount = 0;
   function showQRPayment() {
-    const total = currentCart.reduce((sum,i)=>sum+i.totalPrice,0);
-    pendingTotalAmount = total;
-    qrAmountSpan.innerText = total.toLocaleString();
-    const qrUrl = generateQRCode(total);
-    qrImageContainer.innerHTML = `<img src="${qrUrl}" alt="QR Thanh toán" class="qr-img" style="max-width:260px; width:100%; border-radius:28px;">`;
-    qrModal.style.display = 'flex';
-    paymentModal.style.display = 'none';
+    const total = currentCart.reduce((s,i)=>s+i.totalPrice,0);
+    pendingTotal = total;
+    document.getElementById('qrAmountSpan').innerText = total.toLocaleString();
+    document.getElementById('qrImageContainer').innerHTML = `<img src="${generateQR(total)}" class="qr-img" style="max-width:260px;">`;
+    document.getElementById('qrModal').style.display = 'flex';
+    document.getElementById('paymentMethodModal').style.display = 'none';
   }
-
-  function finalizeQRPayment() {
-    if(pendingTotalAmount <= 0 && currentCart.length===0) return;
-    const total = pendingTotalAmount;
-    const orderCopy = [...currentCart];
-    addOrder(orderCopy, total, "QR Bank (VietinBank)");
+  function finalizeQR() {
+    const total = currentCart.reduce((s,i)=>s+i.totalPrice,0);
+    addOrder([...currentCart], total, 'QR Bank (VietinBank)');
     currentCart = [];
     renderCart();
-    qrModal.style.display = 'none';
-    alert(`💳 Thanh toán QR thành công! Số tiền ${total.toLocaleString()}₫ đã được ghi nhận.`);
-    pendingTotalAmount = 0;
+    document.getElementById('qrModal').style.display = 'none';
+    alert(`💳 Thanh toán QR ${total.toLocaleString()}₫ thành công!`);
   }
 
-  // sự kiện quantity modal
-  function updateQtyDisplay() {
-    modalQuantitySpan.innerText = currentQty;
-    if(selectedProduct && selectedProduct.type === "special_discount" && selectedProduct.id === "che_dua_dam") {
-      if(currentQty === 2) specialPriceHint.innerText = "🎉 Áp dụng ưu đãi: 2 phần = 35.000₫ (tiết kiệm 5k)";
-      else specialPriceHint.innerText = "💰 Giá thường 20k/phần, mua 2 phần chỉ 35k tổng!";
-    }
-  }
-
-  // reset modal và event
-  function initEventListeners() {
-    checkoutBtn.addEventListener('click', showPaymentModal);
-    viewRevenueBtn.addEventListener('click', showRevenueModal);
-    closeRevenueBtn.addEventListener('click', () => revenueModal.style.display='none');
-    cashPayBtn.addEventListener('click', cashPayment);
-    qrPayBtn.addEventListener('click', showQRPayment);
-    closePayModalBtn.addEventListener('click', () => paymentModal.style.display='none');
-    confirmQrPaymentBtn.addEventListener('click', finalizeQRPayment);
-    closeQrModalBtn.addEventListener('click', () => qrModal.style.display='none');
-    modalMinus.addEventListener('click', () => { if(currentQty>1) { currentQty--; updateQtyDisplay(); } });
-    modalPlus.addEventListener('click', () => { currentQty++; updateQtyDisplay(); });
-    modalConfirmBtn.addEventListener('click', confirmAddToCart);
-    modalCancelBtn.addEventListener('click', () => { productModal.style.display='none'; selectedProduct=null; });
-    window.addEventListener('click', (e) => {
-      if(e.target === productModal) productModal.style.display='none';
-      if(e.target === paymentModal) paymentModal.style.display='none';
-      if(e.target === qrModal) qrModal.style.display='none';
-      if(e.target === revenueModal) revenueModal.style.display='none';
-    });
-  }
-
+  // Render menu
   function renderMenu() {
-    productsGrid.innerHTML = PRODUCTS.map(product => `
-      <div class="product-card" data-id="${product.id}">
-        <div class="product-name">${product.name}</div>
-        <div class="product-price">${product.type === 'variable_price' ? 'từ 20k' : product.basePrice.toLocaleString()+'₫'}${product.id === 'che_dua_dam' ? ' (20k/1 -35k/2)' : ''}</div>
+    productsGrid.innerHTML = PRODUCTS.map(p => `
+      <div class="product-card" data-id="${p.id}">
+        <div class="product-name">${p.name}</div>
+        <div class="product-price">${p.type==='variable_price'?'từ 20k':p.basePrice.toLocaleString()+'₫'}${p.id==='che_dua_dam'?' (20k/1-35k/2)':''}</div>
       </div>
     `).join('');
     document.querySelectorAll('.product-card').forEach((card, idx) => {
@@ -793,11 +729,30 @@
     });
   }
 
-  // khởi tạo
-  loadOrdersFromStorage();
+  // Event listeners
+  function bindEvents() {
+    checkoutBtn.addEventListener('click', showPaymentModal);
+    document.getElementById('cashPayBtn').addEventListener('click', cashPayment);
+    document.getElementById('qrPayBtn').addEventListener('click', showQRPayment);
+    document.getElementById('closePayModalBtn').addEventListener('click', () => document.getElementById('paymentMethodModal').style.display='none');
+    document.getElementById('confirmQrPaymentBtn').addEventListener('click', finalizeQR);
+    document.getElementById('closeQrModalBtn').addEventListener('click', () => document.getElementById('qrModal').style.display='none');
+    document.getElementById('closeOrderDetailBtn').addEventListener('click', () => document.getElementById('orderDetailModal').style.display='none');
+    document.getElementById('refreshStatsBtn').addEventListener('click', () => updateStatistics());
+    // modal quantity
+    document.getElementById('modalMinus').addEventListener('click', () => { if(currentQty>1) currentQty--; document.getElementById('modalQuantity').innerText = currentQty; });
+    document.getElementById('modalPlus').addEventListener('click', () => { currentQty++; document.getElementById('modalQuantity').innerText = currentQty; });
+    document.getElementById('modalConfirmBtn').addEventListener('click', confirmAdd);
+    document.getElementById('modalCancelBtn').addEventListener('click', () => document.getElementById('productModal').style.display='none');
+    window.addEventListener('click', (e) => {
+      if(e.target.classList.contains('modal')) e.target.style.display='none';
+    });
+  }
+
   renderMenu();
+  loadOrders();
   renderCart();
-  initEventListeners();
+  bindEvents();
 </script>
 </body>
 </html>
